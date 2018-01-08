@@ -1,0 +1,19 @@
+.main-content {
+  width: 100%;
+}
+
+.create-button {
+  margin: 10px;
+}
+
+.todos-panel {
+  padding-top: 10px;
+}
+
+.complete {
+  color: green;
+}
+
+.uncomplete {
+  color: red;
+}

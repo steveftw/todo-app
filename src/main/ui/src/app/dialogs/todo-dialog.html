@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>
+  <mat-icon>library_add</mat-icon>
+  {{data.title}}
+</h2>
+<mat-dialog-content>
+  <form>
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Todo Title" name="title" [(ngModel)]="todo.title">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Todo Description" name="description" [(ngModel)]="todo.description"></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="onSaveClick()">Save</button>
+</mat-dialog-actions>
