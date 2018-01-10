@@ -47,6 +47,12 @@ export class AppComponent implements OnInit {
     return this.todos.filter(todo => todo.completed);
   }
 
+  todoCompleted(index: number, isComplete: boolean): void {
+    let todo = this.todos[index];
+    todo.completed = isComplete;
+    this.updateTodo(todo);
+  }
+
   saveNewTodo(todo: Todo) {
     this.http.post<Todo>("/todos", todo).subscribe(response => {
       console.log(response);
@@ -54,11 +60,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  updateTodo(index: number): void {
-    let todo = this.todos[index];
+  updateTodo(todo: Todo): void {
     let uri = `/todos/${todo.id}`;
     this.http.put(uri, todo).subscribe(result => {
       console.log(result);
+    });
+  }
+
+  deleteTodo(index: number): void {
+    let todo = this.todos[index];
+    let uri = `/todos/${todo.id}`;
+    this.http.delete(uri).subscribe(result => {
+      this.todos.splice(index, 1);
     });
   }
 

@@ -1,0 +1,37 @@
+<mat-toolbar>Todo Application</mat-toolbar>
+<div class="main-content">
+  <button mat-button color="primary" (click)="onNewTodoClick()" class="create-button">
+    <mat-icon>library_add</mat-icon>
+    New Todo
+  </button>
+  <div class="todos-panel">
+    <!-- Uncompleted Todos -->
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let todo of todos; index as i">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="uncomplete" *ngIf="!todo.completed">close</mat-icon>
+            <mat-icon class="complete" *ngIf="todo.completed">check</mat-icon>
+            <span><strong>{{todo.createts | date: 'medium' }}</strong></span>
+          </mat-panel-title>
+          <mat-panel-description>{{todo.title}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>{{todo.description}}</p>
+        <mat-action-row>
+          <button mat-button color="primary" (click)="todoCompleted(i, !todo.completed)" *ngIf="!todo.completed">
+            <mat-icon>check</mat-icon>
+            Complete
+          </button>
+          <button mat-button color="primary" (click)="todoCompleted(i, !todo.completed)" *ngIf="todo.completed">
+            <mat-icon>close</mat-icon>
+            Uncomplete
+          </button>
+          <button mat-button color="secondary" (click)="deleteTodo(i)">
+            <mat-icon>delete</mat-icon>
+            Delete
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
