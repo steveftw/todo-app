@@ -2,10 +2,10 @@
 This is a little demo application I put together for a YouTube video.
 Check out my channel here: https://www.youtube.com/channel/UC85xKpBiM8lazao7pbidUOw
 
-This project can be used as a good starting point for anyone who wants to start developing their own application using the Spring Boot + Angular application.
+This project can be used as a good starting point for anyone who wants to start developing their own application using the Spring Boot + Angular.
 
 ## Running
-To run the application locally you will need to start the backend API first and then the frontend angular app seconds.
+To run the application locally you will need to start the backend API first and then the frontend angular app second.
 
 ### Start the API on its own
 ```
